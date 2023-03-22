@@ -6,6 +6,7 @@ use Tualo\Office\Basic\TualoApplication as App;
 use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
 use Tualo\Office\ExtJSCompiler\Helper;
+use Mimey\MimeTypes;
 
 class Library implements IRoute{
 
@@ -60,7 +61,10 @@ class Library implements IRoute{
         header('Last-Modified: ' . $server_last_modified);
         header('ETag: ' . $server_etag);
 
-        header('Content-Type: '.mime_content_type($filename));
+        $mimes = new MimeTypes();
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        header('Content-Type: '.$mimes->getMimeType($ext));
+
         if (
             ($client_last_modified && $client_etag) || $strict
             ?   $matching_last_modified && $matching_etag
@@ -76,7 +80,7 @@ class Library implements IRoute{
 
     public static function register(){
         BasicRoute::add('/iconfont_library/(?P<path>.*)',function($matches){
-            $path = dirname(__DIR__,2).'/lib/';
+            $path = dirname(__DIR__,2).'/lib';
             if (($matches['path']=='')||($matches['path']=='/')) return; //bsc should do that job // $matches['path']='index.html';
             if (!file_exists($path.'/'.$matches['path'])){
                 // 
