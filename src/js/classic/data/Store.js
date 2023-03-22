@@ -1,5 +1,5 @@
 Ext.define('IconFont.data.Store', {
-  extend: 'Ext.tualo.JsonStore',
+  extend: 'Ext.data.Store',
   fields: [
    {name: 'id', type: 'string'},
    {name: 'classname', type: 'string'},
