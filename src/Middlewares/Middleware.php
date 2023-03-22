@@ -7,7 +7,7 @@ use Tualo\Office\ExtJSCompiler\AppJson;
 
 class Middleware implements IMiddleware{
     public static function register(){
-        TualoApplication::use('extjscmplr',function(){
+        TualoApplication::use('iconfont_library',function(){
             try{
                 TualoApplication::stylesheet("./iconfont_library/entypo/stylesheets/entypo-icons.css" );
                 TualoApplication::stylesheet("./iconfont_library/fa6/css/all.min.css" );
@@ -18,6 +18,6 @@ class Middleware implements IMiddleware{
                 TualoApplication::set('maintanceMode','on');
                 TualoApplication::addError($e->getMessage());
             }
-        },-100); // should be one of the last
+        },-10000); // should be one of the last
     }
 }
