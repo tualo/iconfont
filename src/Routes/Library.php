@@ -51,7 +51,7 @@ class Library implements IRoute{
         // calculate: current/new header values
         $server_last_modified = gmdate('D, d M Y H:i:s', $timestamp) . ' GMT';
         $server_etag_raw = md5($timestamp . $client_accept_encoding . $identifier);
-        $server_etag = '"' . $server_etag_raw . '"';
+        $server_etag = '' . $server_etag_raw . '';
 
         // calculate: do client and server tags match?
         $matching_last_modified = $client_last_modified == $server_last_modified;
@@ -60,6 +60,7 @@ class Library implements IRoute{
         // set: new headers for cache recognition
         header('Last-Modified: ' . $server_last_modified);
         header('ETag: ' . $server_etag);
+        header('Cache-Control: public');
 
         $mimes = new MimeTypes();
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
