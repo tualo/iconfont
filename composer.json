@@ -19,7 +19,7 @@
   },
   "minimum-stability": "dev",
   "require": {
-    "ralouphie/mimey": "2.1.0"
+    "ralouphie/mimey": "~2.1.0"
   },
-  "version": "1.0.3"
+  "version": "1.0.4"
 }
