@@ -16,6 +16,9 @@ class IconFont extends \Tualo\Office\Basic\RouteWrapper
             $db = TualoApplication::get('session')->getDB();
             $session = TualoApplication::get('session');
             try {
+                if (is_null($db)) {
+                    throw new \Exception('no db connection');
+                }
 
                 $limit = isset($_REQUEST['limit']) ? $_REQUEST['limit'] : 10000;
                 $start = isset($_REQUEST['start']) ? $_REQUEST['start'] : 0;
