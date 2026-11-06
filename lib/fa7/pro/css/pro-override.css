@@ -1,0 +1,12 @@
+.x-fa:before,
+.fa-solid:before,
+.x-fas:before,
+.x-far:before,
+.fa-regular:before {
+    font-family: 'Font Awesome 7 Pro' !important;
+}
+
+.x-far:before,
+.fa-regular:before {
+    font-weight: 400;
+}

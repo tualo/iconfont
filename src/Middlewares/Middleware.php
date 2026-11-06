@@ -15,6 +15,9 @@ class Middleware implements IMiddleware
                 $fa_lic = TualoApplication::configuration('fontawesome', 'license', 'free');
                 TualoApplication::stylesheet("./iconfont_library/entypo/stylesheets/entypo-icons.css");
                 TualoApplication::stylesheet("./iconfont_library/fa7/" . $fa_lic . "/css/all.min.css", 100000);
+                if ($fa_lic === 'pro') {
+                    TualoApplication::stylesheet("./iconfont_library/fa7/" . $fa_lic . "/css/pro-override.css", 100000);
+                }
                 TualoApplication::stylesheet("./iconfont_library/typicons/font/typicons.min.css");
                 TualoApplication::stylesheet("./iconfont_library/material-design-iconic-font/css/material-design-iconic-font.min.css");
             } catch (\Exception $e) {
