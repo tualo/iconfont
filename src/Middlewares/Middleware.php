@@ -14,14 +14,17 @@ class Middleware implements IMiddleware
             try {
                 $fa_lic = TualoApplication::configuration('fontawesome', 'license', 'free');
                 $fa_propath = TualoApplication::configuration('fontawesome', 'propath', '');
-                TualoApplication::stylesheet("./iconfont_library/entypo/stylesheets/entypo-icons.css");
-                if (($fa_lic === 'pro') && ($fa_propath !== '')) {
+
+                // TualoApplication::stylesheet("./iconfont_library/entypo/stylesheets/entypo-icons.css");
+
+                /*if (($fa_lic === 'pro') && ($fa_propath !== '')) {
                     TualoApplication::stylesheet($fa_propath . "/css/all.min.css", 100000);
                 } else {
-                    TualoApplication::stylesheet("./iconfont_library/fa7/" . $fa_lic . "/css/all.min.css", 100000);
                 }
-                TualoApplication::stylesheet("./iconfont_library/typicons/font/typicons.min.css");
-                TualoApplication::stylesheet("./iconfont_library/material-design-iconic-font/css/material-design-iconic-font.min.css");
+                */
+                // TualoApplication::stylesheet("./iconfont_library/fa7/free/css/all.min.css", 100000);
+                // TualoApplication::stylesheet("./iconfont_library/typicons/font/typicons.min.css");
+                // TualoApplication::stylesheet("./iconfont_library/material-design-iconic-font/css/material-design-iconic-font.min.css");
             } catch (\Exception $e) {
                 TualoApplication::set('maintanceMode', 'on');
                 TualoApplication::addError($e->getMessage());

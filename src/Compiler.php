@@ -16,6 +16,8 @@ class Compiler implements ICompiler
             if (($toolkit['toolkit'] == '')) {
                 $files = [];
                 foreach ($toolkit['files'] as $file) {
+
+                    /*
                     if (basename($file['file']) === 'FontAwesomePanel.scss') {
                         if (TualoApplication::configuration('fontawesome', 'license', 'free') !== 'pro') {
 
@@ -25,6 +27,8 @@ class Compiler implements ICompiler
                     } else {
                         $files[] = $file;
                     }
+                    */
+
                     $toolkit['files'] = $files;
                 }
                 $toolkits[] = $toolkit;
